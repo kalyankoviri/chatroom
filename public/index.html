@@ -2,33 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chatroom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHATME</title>
+  <link rel="icon" type="image/jpg" href="chat3.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
+    <!-- Login Screen -->
     <div class="screen join-screen active">
       <div class="form">
-        <h2>Join Chatroom</h2>
-        <div class="form-input">
-          <label>Username</label>
-          <input type="text" id="username" />
+        <div class="top-bar">
+          <select id="language-select">
+            <option value="en">English (India)</option>
+            <option value="te">తెలుగు</option>
+            <option value="hi">हिंदी</option>
+            <option value="ta">தமிழ்</option>
+            <option value="kn">ಕನ್ನಡ</option>
+          </select>
         </div>
+
+        <div class="logo-container">
+          <img src="chat3.png" alt="logo" width="100" height="100">
+          <h2>CHATME</h2>
+        </div>
+
         <div class="form-input">
-          <button id="join-user">Join</button>
+          <input type="text" id="username" placeholder="Username" autocomplete="off" />
+        </div>
+
+        <div class="form-input password-wrapper">
+          <input type="password" id="password" placeholder="Password" autocomplete="off" />
+          <button id="toggle-password" title="Show/Hide Password">Show</button>
+        </div>
+
+        <div class="form-input">
+          <button id="join-user">Login</button>
         </div>
       </div>
     </div>
+
+    <!-- Chat Screen -->
     <div class="screen chat-screen">
       <div class="header">
-        <div class="logo">Chatroom</div>
-        <button id="exit-chat">Exit</button>
+        <div class="logo">
+          <img src="chat3.png" alt="logo" width="60" height="60">
+          <h2>CHATME</h2>
+        </div>
+        <div class="menu-container">
+          <div class="menu-button">&#8942;</div>
+          <div class="menu-dropdown">
+            <button id="toggle-dark">Dark Mode</button>
+            <button id="exit-chat">Logout</button>
+          </div>
+        </div>
       </div>
-      <div class="messages"></div>
-      <div class="typebox">
-        <input type="text" id="message-input" />
-        <button id="send-message">Send</button>
+
+      <div class="main-content">
+        <div class="user-list">
+          <h3>Online Users</h3>
+          <ul id="users"></ul>
+        </div>
+
+        <div class="chat-area">
+          <div class="messages"></div>
+          <div class="typebox">
+            <input type="text" id="message-input" placeholder="Enter text" autocomplete="off" />
+            <button id="send-message">Send</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
